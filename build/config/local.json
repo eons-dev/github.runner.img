@@ -1,0 +1,31 @@
+{
+    "next": [
+        {
+            "build": "docker",
+            "config": {
+                "tags": [
+                    "latest"
+                ],
+                "also": [
+                    "RUN wget https://github.com/cli/cli/releases/download/v2.16.1/gh_2.16.1_linux_386.tar.gz; mv -v gh_*/bin/* /usr/local/bin/"
+                ],
+                "image_os": "alpine",
+                "image_name": "eons/img_github-runner",
+                "base_image": "eons/img_generic-builder",
+                "next": [
+                    {
+                        "build_in": "./",
+                        "run_when_any": [
+                            "release"
+                        ],
+                        "build": "docker_publish",
+                        "config": {
+                            "clear_build_path": false,
+                            "image_name": "eons/img_github-runner"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

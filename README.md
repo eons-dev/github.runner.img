@@ -1,2 +1,2 @@
-# img_runner-github
-Runner for all github actions
+# Runner for Github
+Container to run all github actions in
