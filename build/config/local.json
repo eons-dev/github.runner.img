@@ -7,7 +7,7 @@
                     "latest"
                 ],
                 "also": [
-                    "RUN wget https://github.com/cli/cli/releases/download/v2.16.1/gh_2.16.1_linux_386.tar.gz; mv -v gh_*/bin/* /usr/local/bin/"
+                    "RUN wget https://github.com/cli/cli/releases/download/v2.16.1/gh_2.16.1_linux_386.tar.gz; tar zxvf gh_*; mv -v gh_*/bin/* /usr/local/bin/; rm -vrf gh_*"
                 ],
                 "image_os": "alpine",
                 "image_name": "eons/img_github-runner",
